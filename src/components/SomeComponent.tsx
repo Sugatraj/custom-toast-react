@@ -1,5 +1,6 @@
 import React from 'react';
 import ToastService from '../services/ToastService';
+import 'remixicon/fonts/remixicon.css';
 
 function SomeComponent() {
   const showSuccessToast = () => {
@@ -24,28 +25,32 @@ function SomeComponent() {
         onClick={showSuccessToast} 
         style={{ ...styles.button, backgroundColor: '#28a745' }}
       >
-        Show Success
+        <i className="ri-check-line" style={styles.icon}></i>
+        <span>Show Success</span>
       </button>
       
       <button 
         onClick={showErrorToast} 
         style={{ ...styles.button, backgroundColor: '#dc3545' }}
       >
-        Show Error
+        <i className="ri-close-circle-line" style={styles.icon}></i>
+        <span>Show Error</span>
       </button>
       
       <button 
         onClick={showInfoToast} 
         style={{ ...styles.button, backgroundColor: '#17a2b8' }}
       >
-        Show Info
+        <i className="ri-information-line" style={styles.icon}></i>
+        <span>Show Info</span>
       </button>
       
       <button 
         onClick={showWarningToast} 
         style={{ ...styles.button, backgroundColor: '#ffc107' }}
       >
-        Show Warning
+        <i className="ri-alert-line" style={styles.icon}></i>
+        <span>Show Warning</span>
       </button>
     </div>
   );
@@ -62,16 +67,24 @@ const styles = {
     flexWrap: 'wrap' as const,
   },
   button: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
     padding: '12px 20px',
     fontSize: '16px',
     border: 'none',
     borderRadius: '6px',
     color: '#fff',
     cursor: 'pointer',
-    transition: 'opacity 0.3s',
+    transition: 'all 0.3s ease',
     ':hover': {
       opacity: 0.9,
     },
+  },
+  icon: {
+    fontSize: '18px',
+    display: 'flex',
+    alignItems: 'center',
   },
 } as const;
 
